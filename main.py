@@ -1,16 +1,17 @@
-# This is a sample Python script.
+import pandas as pd
+pd.set_option('display.expand_frame_repr', False)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+debt=pd.read_csv('MunicipalDebtAnalysis.csv')
 
+print(debt.info())
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print(debt.head())
 
+print(debt.shape)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('tylkjko')
+print(debt.describe())
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(debt.isnull().sum())
+
+print(debt.sort_values(['propertyvalue','totalbilling'], ascending=[False, False]))
+
